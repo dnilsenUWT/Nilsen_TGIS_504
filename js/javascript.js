@@ -38,3 +38,10 @@ function onLocationError(e) {
 map.on('locationerror', onLocationError);
 
 map.locate({setView: true, maxZoom: 16});
+
+var baseLayers ={
+  "Light": light,
+  "Dark" : dark
+};
+
+L.control.layers(baseLayers).addTo(map);
