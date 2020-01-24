@@ -315,3 +315,4 @@ else if (typeof define === 'function' && define.amd) define(SunCalc);
 else window.SunCalc = SunCalc;
 
 }());
+//
