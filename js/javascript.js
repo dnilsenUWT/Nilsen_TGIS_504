@@ -20,7 +20,20 @@ var map = L.map('map', {layers:[light]}).fitWorld();
 
 
 function onLocationFound(e) {
+  var times = SunCalc.getTimes(new Date(), e.latitude, e.longitude);
+  var sunrise = times.sunrise.getHours();
+  var sunset = times.sunset.getHours();
 
+
+  var currentTime = new Date().getHours();
+      if (sunrise < currentTime && currentTime < sunset){
+        map.removeLayer(dark);
+        map.addLayer(light);
+      }
+      else {
+        map.removeLayer(light);
+        map.addLayer(dark);
+      }
     var radius = e.accuracy / 2 //this defines a variable radius as the accuracy value returned by the locate method divided by 2. It is divided by 2 because the accuracy value is the sum of the estimated accuracy of the latitude plus the estimated accuracy of the longitude. The unit is meters.
 
     L.marker(e.latlng).addTo(map)  //this adds a marker at the lat and long returned by the locate function.
