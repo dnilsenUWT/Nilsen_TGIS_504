@@ -59,11 +59,6 @@ var baseLayers ={
 
 L.control.layers(baseLayers).addTo(map);
 
-// L.control.defaultExtent()
-//
-// .addTo(map);
-//
-//var helloPopup = L.popup().setContent('Hello World!');
-L.easyButton('fa-crosshairs fa-lg', function(btn, map){
+L.easyButton("fas fa-crosshairs", function(btn, map){
     map.locate({setView: true, maxZoom: 16});
 }).addTo(map);
